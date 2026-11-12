@@ -1,0 +1,161 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[serbian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage[unicode]{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue
+}
+
+\graphicspath{{Slike/}}
+
+\begin{document}
+
+\shorthandoff{"}
+
+% ======================== NASLOVNA STRANA ========================
+\begin{titlepage}
+    \centering
+    {\Large Univerzitet u Beogradu}\\[0.3cm]
+    {\Large Matematički fakultet}\\[1.5cm]
+    {\large Projekat iz predmeta Informacioni sistemi 2026/2027.}\\[0.5cm]
+
+    \rule{\linewidth}{0.5mm}\\[0.4cm]
+    {\huge \bfseries Informacioni sistem za organizaciju i sprovođenje studentskih izbora}\\[0.4cm]
+    \rule{\linewidth}{0.5mm}\\[3cm]
+
+    \noindent
+    \begin{minipage}{0.45\textwidth}
+        \begin{flushleft}\large
+            \textbf{Autori:}\\
+            Sara Krsmanović\\
+            Andrijana Janković\\
+            Aleksa Toroman
+        \end{flushleft}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+        \begin{flushright}\large
+            \textbf{Profesor:}\\
+            dr Saša Malkov\\[0.5cm]
+            \textbf{Asistent:}\\
+            Dara Milojković
+        \end{flushright}
+    \end{minipage}
+
+    \vfill
+    {\large \today}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% ============================ UVOD ===============================
+\section{Uvod}
+
+\subsection{Opis sistema}
+
+Informacioni sistem za organizaciju i sprovođenje studentskih izbora predstavlja veb aplikaciju namenjenu organizaciji i sprovođenju izbora za studentski parlament fakulteta.
+
+Sistem omogućava administratoru da kreira izbore, definiše period njihovog održavanja, evidentira izborne liste i formira birački spisak studenata koji imaju pravo glasa, u skladu sa pravilima održavanja izbora.
+
+Izborna komisija nadgleda sprovođenje izbora i prati izlaznost. Nakon završetka glasanja, sistem obrađuje glasove, a izborna komisija potvrđuje i objavljuje rezultate.
+
+Studentima je omogućeno da se prijave u sistem, pregledaju informacije o izborima i izbornim listama i elektronski glasaju, ukoliko imaju pravo glasa. Sistem obezbeđuje da svaki student može glasati samo jednom na istim izborima, uz očuvanje tajnosti njegovog izbora.
+
+Cilj sistema je da pojednostavi organizaciju izbora za studentski parlament, smanji administrativne poslove i omogući efikasno, bezbedno i transparentno sprovođenje izbora.
+
+\subsection{Ciljevi sistema}
+
+Osnovni cilj sistema je unapređenje procesa organizacije i sprovođenja izbora za studentski parlament kroz digitalizaciju izbornih aktivnosti.
+
+Specifični ciljevi sistema su:
+\begin{enumerate}
+    \item \textbf{Pojednostavljivanje organizacije izbora} -- omogućavanje administratoru da na jednom mestu kreira izbore, upravlja izbornim listama i priprema birački spisak.
+    \item \textbf{Olakšavanje učešća na izborima} -- omogućavanje studentima da elektronski glasaju, bez potrebe za fizičkim dolaskom na fakultet.
+    \item \textbf{Obezbeđivanje regularnosti glasanja} -- provera prava glasa i sprečavanje višestrukog glasanja istog studenta na izborima.
+    \item \textbf{Očuvanje tajnosti glasanja} -- obezbeđivanje da pojedinačni glas ne može da se poveže sa identitetom studenta.
+    \item \textbf{Efikasno praćenje izbornog procesa} -- omogućavanje izbornoj komisiji da prati izlaznost i nadgleda sprovođenje izbora.
+    \item \textbf{Automatizacija obrade glasova} -- smanjenje mogućnosti grešaka pri prebrojavanju glasova i ubrzavanje obrade rezultata.
+    \item \textbf{Transparentnost rezultata} -- omogućavanje studentima da, nakon završetka izbora, pristupe objavljenim rezultatima.
+\end{enumerate}
+
+\subsection{Akteri}
+
+Razlikujemo tri osnovna aktera: \textbf{administratora}, \textbf{studenta} i \textbf{izbornu komisiju}. Svaki akter ima određena ovlašćenja i pristup funkcionalnostima sistema u skladu sa svojom ulogom.
+
+\subsubsection*{Administrator}
+
+Administrator je zadužen za pripremu i organizaciju izbora. Njegova ovlašćenja obuhvataju:
+\begin{itemize}
+    \item kreiranje izbora,
+    \item određivanje perioda glasanja,
+    \item evidentiranje izbornih lista,
+    \item formiranje biračkog spiska na osnovu unapred definisanih pravila o pravu glasa.
+\end{itemize}
+Administrator vodi računa o tome da pravo glasa imaju samo studenti koji ispunjavaju propisane uslove.
+
+\subsubsection*{Student}
+
+Student je korisnik sistema koji učestvuje u izborima. Nakon prijavljivanja u sistem, student može da pregleda informacije o izborima i izbornim listama. Ukoliko se nalazi na biračkom spisku, student može da glasa za jednu od ponuđenih opcija.
+
+Sistem obezbeđuje da student može glasati samo jednom na istim izborima, uz očuvanje tajnosti glasa. Nakon objavljivanja rezultata, student može da ih pregleda.
+
+\subsubsection*{Izborna komisija}
+
+Izborna komisija je zadužena za praćenje sprovođenja izbora. Tokom glasanja komisija može da prati:
+\begin{itemize}
+    \item broj studenata sa pravom glasa,
+    \item broj studenata koji su glasali,
+    \item procenat izlaznosti.
+\end{itemize}
+Nakon završetka glasanja, komisija pregleda rezultate i proverava da li je ispunjen uslov minimalne izlaznosti od 50\%. Ukoliko je izlaznost veća ili jednaka 50\%, komisija objavljuje rezultate. Ukoliko je izlaznost manja od 50\%, komisija objavljuje obaveštenje da izbori nisu važeći i da je potrebno ponoviti glasanje.
+
+% ====================== SLUČAJEVI UPOTREBE =======================
+\newpage
+\section{Slučajevi upotrebe}
+
+Na osnovu definisanih aktera i njihovih ovlašćenja, identifikovani su sledeći slučajevi upotrebe:
+\begin{enumerate}
+    \item Kreiranje izbora -- administrator
+    \item Upravljanje biračkim spiskom -- administrator
+    \item Upravljanje izbornim listama -- administrator
+    \item Pregled informacija o izborima -- student
+    \item Elektronsko glasanje -- student
+    \item Pregled rezultata -- student
+    \item Praćenje izlaznosti -- izborna komisija
+    \item Pregled rezultata -- izborna komisija
+    \item Objavljivanje rezultata -- izborna komisija
+    \item Objavljivanje obaveštenja o ponavljanju izbora -- izborna komisija
+\end{enumerate}
+
+Administrator priprema izbore tako što kreira nove izbore, evidentira izborne liste i kreira birački spisak. Student može da pregleda informacije o izborima, da glasa ukoliko ima pravo glasa i da pregleda rezultate. Izborna komisija prati izlaznost tokom glasanja, a nakon završetka izbora, u zavisnosti od ispunjenosti uslova izlaznosti, objavljuje rezultate ili obaveštenje o ponavljanju izbora.
+
+U nastavku su detaljno opisani slučajevi upotrebe \textit{Kreiranje izbora}, \textit{Elektronsko glasanje} i \textit{Objavljivanje rezultata}, zajedno sa odgovarajućim dijagramima aktivnosti.
+
+\input{SlucajeviUpotrebe/SUkreiranjeIzbora}
+\input{SlucajeviUpotrebe/SUelektronskoGlasanje}
+\input{SlucajeviUpotrebe/SUobjavljivanjeRezultata}
+
+% ================= POGLAVLJA ZA NAREDNE ITERACIJE ================
+% \section{Model baze podataka}
+% \input{ModelBaze}
+%
+% \section{Arhitektura sistema}
+% \input{arhitekturaSistema}
+%
+% \section{Korisnički interfejs}
+% \input{interfejs}
+%
+% \section{Zaključak}
+% \input{zakljucak}
+
+\end{document}
