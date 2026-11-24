@@ -1,0 +1,53 @@
+@startuml sekvenca_elektronsko_glasanje
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam shadowing false
+skinparam sequence {
+  ParticipantBackgroundColor #DAE8FC
+  ParticipantBorderColor #6C8EBF
+  LifeLineBorderColor #6C8EBF
+}
+title Elektronsko glasanje
+
+actor Student as St
+participant "Veb aplikacija" as UI
+participant "Server" as S
+database "Baza podataka" as DB
+
+St -> UI : bira opciju "Glasaj"
+UI -> S : zahtev za glasanje
+activate S
+S -> DB : provera biračkog spiska i statusa glasanja
+activate DB
+DB --> S : pravo glasa, status
+deactivate DB
+alt student nema pravo glasa
+  S --> UI : nema pravo glasa
+  UI --> St : obaveštenje "Student nema pravo glasa"
+else student je već glasao
+  S --> UI : već glasao
+  UI --> St : obaveštenje "Student je već glasao"
+else student može da glasa
+  S -> DB : učitaj izborne liste
+  activate DB
+  DB --> S : izborne liste
+  deactivate DB
+  S --> UI : izborne liste
+  UI --> St : prikaz izbornih lista
+  St -> UI : bira izbornu listu
+  UI --> St : prikaz izbora i zahtev za potvrdu
+  alt student potvrđuje glas
+    St -> UI : potvrđuje
+    UI -> S : predaja glasa
+    S -> DB : upiši anoniman glas (bez identiteta studenta)
+    S -> DB : postavi status studenta na "glasao"
+    S -> DB : ažuriraj izlaznost
+    S --> UI : glas evidentiran
+    UI --> St : potvrda uspešnog glasanja
+  else student odustaje
+    St -> UI : odustaje
+    UI --> St : glas nije evidentiran
+  end
+end
+deactivate S
+@enduml

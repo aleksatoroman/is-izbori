@@ -1,0 +1,29 @@
+@startuml aktivnosti_pregled_rezultata
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam shadowing false
+skinparam activity {
+  BackgroundColor #DAE8FC
+  BorderColor #6C8EBF
+  DiamondBackgroundColor #DAE8FC
+  DiamondBorderColor #6C8EBF
+}
+title Pregled rezultata (student)
+
+|Student|
+start
+:Student bira završene izbore\ni opciju **Rezultati**;
+|Sistem|
+:Sistem proverava status izbora;
+switch (Status izbora?)
+case (rezultati objavljeni)
+  :Sistem prikazuje izlaznost i\nbroj glasova po izbornim listama;
+case (izbori se ponavljaju)
+  :Sistem prikazuje obaveštenje\nda izbori nisu važeći\ni da se ponavljaju;
+case (rezultati nisu objavljeni)
+  :Sistem prikazuje poruku\nda rezultati još nisu objavljeni;
+endswitch
+|Student|
+:Student pregleda prikazane informacije;
+stop
+@enduml

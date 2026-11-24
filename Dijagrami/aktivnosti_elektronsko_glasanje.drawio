@@ -1,0 +1,211 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="VCOClAO7Cps-_q6sTMN2">
+    <mxGraphModel dx="1030" dy="1670" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--25" parent="1" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;" value="Elektronsko glasanje" vertex="1">
+          <mxGeometry height="1420" width="700" x="40" y="-530" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--26" parent="AeGAPJLFQXGcjxk1IrX--25" style="swimlane;startSize=20;html=1;align=left;swimlaneFillColor=default;aspect=fixed;" value="&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; padding: 0px;&quot;&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(#000000, var(--ge-light-color, #ffffff));&quot;&gt;Student&lt;/span&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="1400" width="700" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--1" parent="AeGAPJLFQXGcjxk1IrX--26" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;gradientColor=none;gradientDirection=radial;fillColor=light-dark(#030303, #ededed);" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="160" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--13" edge="1" parent="AeGAPJLFQXGcjxk1IrX--26" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;labelPadding=0 4;strokeWidth=2;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="174.5" y="60" as="sourcePoint" />
+            <mxPoint x="174.5" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--29" edge="1" parent="AeGAPJLFQXGcjxk1IrX--26" source="AeGAPJLFQXGcjxk1IrX--27" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;labelPadding=0 4;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points" />
+            <mxPoint x="265" y="140" as="sourcePoint" />
+            <mxPoint x="350.5" y="214" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--27" parent="AeGAPJLFQXGcjxk1IrX--26" style="swimlane;startSize=20;html=1;align=left;swimlaneFillColor=default;" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(#000000, var(--ge-light-color, #ffffff));&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Sistem&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="1400" width="350" x="350" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--4" parent="AeGAPJLFQXGcjxk1IrX--27" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Sistem prikazuje obaveštenje:&lt;br&gt;&lt;b&gt;Student nema pravo glasa&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="175" x="77.5" y="221" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--9" parent="AeGAPJLFQXGcjxk1IrX--27" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Sistem prikazuje izbor i traži potvrdu" vertex="1">
+          <mxGeometry height="60" width="164.5" x="90" y="685" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--5" parent="AeGAPJLFQXGcjxk1IrX--27" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Sistem prikazuje obaveštenje:&lt;br&gt;&lt;b&gt;Student je već glasao&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="175" x="77.5" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--11" parent="AeGAPJLFQXGcjxk1IrX--27" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Sistem prikazuje izborne liste" vertex="1">
+          <mxGeometry height="60" width="164.5" x="82.75" y="462" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--10" parent="AeGAPJLFQXGcjxk1IrX--27" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Sistem anonimno evidentira glas" vertex="1">
+          <mxGeometry height="60" width="164.5" x="88" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--60" parent="AeGAPJLFQXGcjxk1IrX--27" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Sistem menja status studenta u &lt;b&gt;Glasao&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="164.5" x="88" y="890" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--61" parent="AeGAPJLFQXGcjxk1IrX--27" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Sistem ažurira izlaznost na izborima" vertex="1">
+          <mxGeometry height="60" width="164.5" x="92.75" y="980" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--63" parent="AeGAPJLFQXGcjxk1IrX--27" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Sistem ne evidentira glas, ne menja status studenta i ne ažurira izlaznost" vertex="1">
+          <mxGeometry height="60" width="164.5" x="92.75" y="1190" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--62" parent="AeGAPJLFQXGcjxk1IrX--27" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Sistem prikazuje potvrdu uspešnog glasanja" vertex="1">
+          <mxGeometry height="60" width="164.5" x="92.75" y="1070" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--43" parent="AeGAPJLFQXGcjxk1IrX--27" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=light-dark(#000000, #ff9090);" value="" vertex="1">
+          <mxGeometry height="40" width="40" x="155" y="1300" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--72" edge="1" parent="AeGAPJLFQXGcjxk1IrX--27" source="AeGAPJLFQXGcjxk1IrX--10" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;labelPadding=0 4;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="AeGAPJLFQXGcjxk1IrX--60" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="80" y="800" as="sourcePoint" />
+            <mxPoint x="130" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--73" edge="1" parent="AeGAPJLFQXGcjxk1IrX--27" source="AeGAPJLFQXGcjxk1IrX--60" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;labelPadding=0 4;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="AeGAPJLFQXGcjxk1IrX--61" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="170" y="980" />
+            </Array>
+            <mxPoint x="170" y="950" as="sourcePoint" />
+            <mxPoint x="130" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--74" edge="1" parent="AeGAPJLFQXGcjxk1IrX--27" source="AeGAPJLFQXGcjxk1IrX--61" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;labelPadding=0 4;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="AeGAPJLFQXGcjxk1IrX--62" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="80" y="1040" as="sourcePoint" />
+            <mxPoint x="130" y="990" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--75" edge="1" parent="AeGAPJLFQXGcjxk1IrX--27" source="AeGAPJLFQXGcjxk1IrX--62" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;labelPadding=0 4;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="AeGAPJLFQXGcjxk1IrX--43" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="1100" />
+              <mxPoint x="300" y="1320" />
+            </Array>
+            <mxPoint x="80" y="1040" as="sourcePoint" />
+            <mxPoint x="300" y="1290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--76" edge="1" parent="AeGAPJLFQXGcjxk1IrX--27" source="AeGAPJLFQXGcjxk1IrX--63" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;labelPadding=0 4;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="AeGAPJLFQXGcjxk1IrX--43" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="180" y="1250" as="sourcePoint" />
+            <mxPoint x="130" y="1360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--3" parent="AeGAPJLFQXGcjxk1IrX--26" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Student bira opciju&lt;br&gt;&lt;b&gt;Glasaj&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="175" x="87.5" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--8" parent="AeGAPJLFQXGcjxk1IrX--26" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Ima pravo glasa?" vertex="1">
+          <mxGeometry height="80" width="155" x="97.5" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--7" parent="AeGAPJLFQXGcjxk1IrX--26" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Već glasao?" vertex="1">
+          <mxGeometry height="80" width="155" x="97.5" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--58" edge="1" parent="AeGAPJLFQXGcjxk1IrX--26" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;labelPadding=0 4;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" target="AeGAPJLFQXGcjxk1IrX--5" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="252.5" y="370" as="sourcePoint" />
+            <mxPoint x="302.5" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--6" parent="AeGAPJLFQXGcjxk1IrX--26" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Student bira izbornu listu" vertex="1">
+          <mxGeometry height="60" width="164.5" x="98" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--59" parent="AeGAPJLFQXGcjxk1IrX--26" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Student potvrđuje?" vertex="1">
+          <mxGeometry height="80" width="155" x="102.75" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--64" edge="1" parent="AeGAPJLFQXGcjxk1IrX--26" source="AeGAPJLFQXGcjxk1IrX--3" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;labelPadding=0 4;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" target="AeGAPJLFQXGcjxk1IrX--8" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="170" y="170" as="sourcePoint" />
+            <mxPoint x="190" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--65" edge="1" parent="AeGAPJLFQXGcjxk1IrX--26" source="AeGAPJLFQXGcjxk1IrX--8" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;labelPadding=0 4;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeWidth=2;" target="AeGAPJLFQXGcjxk1IrX--7" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="180" y="290" as="sourcePoint" />
+            <mxPoint x="410" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--66" edge="1" parent="AeGAPJLFQXGcjxk1IrX--26" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;labelPadding=0 4;strokeWidth=2;" value="">
+          <mxGeometry height="50" relative="1" width="50" x="0.003" as="geometry">
+            <Array as="points">
+              <mxPoint x="175" y="490" />
+            </Array>
+            <mxPoint x="175" y="411" as="sourcePoint" />
+            <mxPoint x="430" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--69" edge="1" parent="AeGAPJLFQXGcjxk1IrX--26" source="AeGAPJLFQXGcjxk1IrX--9" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;labelPadding=0 4;exitX=0.5;exitY=1;exitDx=0;exitDy=0;endSize=6;strokeWidth=2;" target="AeGAPJLFQXGcjxk1IrX--59" value="">
+          <mxGeometry height="50" relative="1" width="50" x="-0.0825" as="geometry">
+            <Array as="points">
+              <mxPoint x="522.25" y="770" />
+              <mxPoint x="180" y="770" />
+            </Array>
+            <mxPoint x="549.75" y="745" as="sourcePoint" />
+            <mxPoint x="170" y="770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--77" parent="AeGAPJLFQXGcjxk1IrX--26" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Ne" vertex="1">
+          <mxGeometry height="30" width="60" x="280" y="223" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--78" parent="AeGAPJLFQXGcjxk1IrX--26" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Da" vertex="1">
+          <mxGeometry height="30" width="60" x="160" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--80" parent="AeGAPJLFQXGcjxk1IrX--26" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Da" vertex="1">
+          <mxGeometry height="30" width="60" x="280" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--81" parent="AeGAPJLFQXGcjxk1IrX--26" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Ne" vertex="1">
+          <mxGeometry height="30" width="60" x="160" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--83" parent="AeGAPJLFQXGcjxk1IrX--26" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Da" vertex="1">
+          <mxGeometry height="30" width="60" x="262.5" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--85" parent="AeGAPJLFQXGcjxk1IrX--26" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Ne" vertex="1">
+          <mxGeometry height="30" width="60" x="170" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--56" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;labelPadding=0 4;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" target="AeGAPJLFQXGcjxk1IrX--4" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="290" y="-260" as="sourcePoint" />
+            <mxPoint x="460" y="-260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--67" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;labelPadding=0 4;strokeWidth=2;" value="">
+          <mxGeometry height="50" relative="1" width="50" x="-0.6765" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="100" />
+            </Array>
+            <mxPoint x="550" y="10" as="sourcePoint" />
+            <mxPoint x="300" y="100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--68" edge="1" parent="1" source="AeGAPJLFQXGcjxk1IrX--6" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;labelPadding=0 4;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeWidth=2;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="210" />
+            </Array>
+            <mxPoint x="400" y="180" as="sourcePoint" />
+            <mxPoint x="480" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--70" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;labelPadding=0 4;strokeWidth=2;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="300" y="320" as="sourcePoint" />
+            <mxPoint x="480" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AeGAPJLFQXGcjxk1IrX--84" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;labelPadding=0 4;entryX=0;entryY=0.75;entryDx=0;entryDy=0;strokeWidth=2;" target="AeGAPJLFQXGcjxk1IrX--63" value="">
+          <mxGeometry height="50" relative="1" width="50" x="0.0068" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="725" />
+            </Array>
+            <mxPoint x="220" y="360" as="sourcePoint" />
+            <mxPoint x="520" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

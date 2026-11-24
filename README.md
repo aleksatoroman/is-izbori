@@ -8,17 +8,37 @@ Projekat obuhvata analizu i projektovanje informacionog sistema za studentske iz
 
 ## Dokumentacija
 
-LaTeX dokumentacija se nalazi u folderu [`dokumentacija/`](dokumentacija/):
+Tekuća verzija projekta je [`main.pdf`](main.pdf), a prevodi se iz [`main.tex`](main.tex).
 
 ```
-dokumentacija/
-├── main.tex                      # glavni dokument (uvod, ciljevi, akteri, pregled slučajeva upotrebe)
-├── SlucajeviUpotrebe/
-│   ├── SUkreiranjeIzbora.tex
-│   ├── SUelektronskoGlasanje.tex
-│   └── SUobjavljivanjeRezultata.tex
-└── Slike/                        # dijagrami (.drawio izvor + izvezeni .png)
+main.tex                          # glavni dokument (uvod, ciljevi, akteri, slučajevi upotrebe)
+main.pdf                          # prevedena tekuća verzija
+dfd.tex                           # dijagrami toka podataka
+bpmn.tex                          # BPMN dijagrami
+SlucajeviUpotrebe/                # opis svakog slučaja upotrebe u posebnom .tex fajlu
+Dijagrami/                        # izvorni fajlovi dijagrama (.puml, .bpmn, .drawio)
+Slike/                            # izvezene slike dijagrama (.png) koje se ubacuju u dokument
 ```
 
-Dokument se prevodi pdfLaTeX-om iz foldera `dokumentacija/` (npr. `pdflatex main.tex`, dva puta zbog sadržaja) ili na Overleaf-u.
+### Prevođenje dokumenta
 
+Dokument se prevodi pdfLaTeX-om (npr. na Overleaf-u) ili XeLaTeX-om, odnosno [Tectonic](https://tectonic-typesetting.github.io/)-om:
+
+```
+pdflatex main.tex   # pokrenuti dva puta zbog sadržaja
+tectonic main.tex   # alternativa, sam preuzima potrebne pakete
+```
+
+### Izmena dijagrama
+
+| Vrsta dijagrama | Izvor | Alat |
+|---|---|---|
+| Slučajevi upotrebe, aktivnosti, sekvence, DFD | `Dijagrami/*.puml` | [PlantUML](https://plantuml.com/) (npr. ekstenzija za VS Code) |
+| BPMN | `Dijagrami/*.bpmn` | [bpmn.io](https://demo.bpmn.io/) ili Camunda Modeler |
+| Aktivnosti (prva iteracija) | `Dijagrami/*.drawio` | [diagrams.net](https://app.diagrams.net/) |
+
+Nakon izmene, dijagram treba ponovo izvesti kao PNG u folder `Slike/`, pod istim imenom. PlantUML dijagrami se izvoze komandom:
+
+```
+java -jar plantuml.jar -charset UTF-8 -tpng -Sdpi=150 -o ../Slike Dijagrami/*.puml
+```

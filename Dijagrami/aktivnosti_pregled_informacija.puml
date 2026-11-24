@@ -1,0 +1,31 @@
+@startuml aktivnosti_pregled_informacija
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam shadowing false
+skinparam activity {
+  BackgroundColor #DAE8FC
+  BorderColor #6C8EBF
+  DiamondBackgroundColor #DAE8FC
+  DiamondBorderColor #6C8EBF
+}
+title Pregled informacija o izborima
+
+|Student|
+start
+:Student bira opciju **Izbori**;
+|Sistem|
+if (Postoje objavljeni izbori?) then (ne)
+  :Sistem prikazuje poruku da\ntrenutno nema raspisanih izbora;
+  stop
+else (da)
+endif
+:Sistem prikazuje spisak izbora\nsa periodom glasanja i statusom;
+|Student|
+:Student bira izbore;
+|Sistem|
+:Sistem prikazuje detalje izbora\ni spisak izbornih lista;
+:Sistem prikazuje da li student\nima pravo glasa i da li je već glasao;
+|Student|
+:Student pregleda informacije o izbornim listama;
+stop
+@enduml
