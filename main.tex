@@ -1,8 +1,15 @@
 \documentclass[12pt,a4paper]{article}
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+\usepackage{iftex}
+\ifPDFTeX
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+\else
+    \usepackage{fontspec}
+\fi
 \usepackage[serbian]{babel}
+\usepackage{pdflscape}
+\usepackage{capt-of}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage{float}
@@ -16,6 +23,31 @@
 }
 
 \graphicspath{{Slike/}}
+
+% Slika preko cele položene (landscape) strane: #1 datoteka, #2 naslov, #3 labela.
+% pdfLaTeX (npr. Overleaf) koristi pdflscape; XeTeX/Tectonic rotira stranu ručno.
+\newcommand{\slikaPolozeno}[3]{%
+\ifXeTeX
+    \clearpage
+    \special{pdf:put @thispage <</Rotate 90>>}%
+    \vspace*{\fill}
+    {\centering
+        \rotatebox{90}{\begin{minipage}{0.92\textheight}
+            \centering
+            \includegraphics[width=\linewidth]{#1}
+            \captionof{figure}{#2}\label{#3}
+        \end{minipage}}\par}
+    \vspace*{\fill}
+    \clearpage
+\else
+    \begin{landscape}
+    \begin{figure}[p]
+        \centering
+        \includegraphics[width=\linewidth]{#1}
+        \caption{#2}\label{#3}
+    \end{figure}
+    \end{landscape}
+\fi}
 
 \begin{document}
 
@@ -139,11 +171,34 @@ Na osnovu definisanih aktera i njihovih ovlašćenja, identifikovani su sledeći
 
 Administrator priprema izbore tako što kreira nove izbore, evidentira izborne liste i kreira birački spisak. Student može da pregleda informacije o izborima, da glasa ukoliko ima pravo glasa i da pregleda rezultate. Izborna komisija prati izlaznost tokom glasanja, a nakon završetka izbora, u zavisnosti od ispunjenosti uslova izlaznosti, objavljuje rezultate ili obaveštenje o ponavljanju izbora.
 
-U nastavku su detaljno opisani slučajevi upotrebe \textit{Kreiranje izbora}, \textit{Elektronsko glasanje} i \textit{Objavljivanje rezultata}, zajedno sa odgovarajućim dijagramima aktivnosti.
+Slučajevi upotrebe i njihovi akteri prikazani su na dijagramu slučajeva upotrebe (slika \ref{fig:dijagram_slucajeva_upotrebe}). Slučajevi \textit{Objavljivanje rezultata} i \textit{Objavljivanje obaveštenja o ponavljanju izbora} uvek počinju pregledom rezultata od strane izborne komisije, pa uključuju slučaj \textit{Pregled rezultata (izborna komisija)}.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{slucajevi_upotrebe.png}
+    \caption{Dijagram slučajeva upotrebe}
+    \label{fig:dijagram_slucajeva_upotrebe}
+\end{figure}
+
+U nastavku su detaljno opisani slučajevi upotrebe, grupisani po akterima, zajedno sa odgovarajućim dijagramima aktivnosti. Za ključne slučajeve upotrebe dati su i dijagrami sekvence. Slučajevi upotrebe 8, 9 i 10 čine jedan neprekidan tok rada izborne komisije, pa su opisani zajedno u okviru slučaja upotrebe \textit{Objavljivanje rezultata}.
+
+\newpage
 \input{SlucajeviUpotrebe/SUkreiranjeIzbora}
+\input{SlucajeviUpotrebe/SUupravljanjeBirackimSpiskom}
+\input{SlucajeviUpotrebe/SUupravljanjeIzbornimListama}
+\input{SlucajeviUpotrebe/SUpregledInformacijaOIzborima}
 \input{SlucajeviUpotrebe/SUelektronskoGlasanje}
+\input{SlucajeviUpotrebe/SUpregledRezultata}
+\input{SlucajeviUpotrebe/SUpracenjeIzlaznosti}
 \input{SlucajeviUpotrebe/SUobjavljivanjeRezultata}
+
+% ====================== DIJAGRAMI TOKA PODATAKA ==================
+\section{Dijagrami toka podataka}
+\input{dfd}
+
+% ========================= POSLOVNI PROCESI =======================
+\section{BPMN dijagrami}
+\input{bpmn}
 
 % ================= POGLAVLJA ZA NAREDNE ITERACIJE ================
 % \section{Model baze podataka}

@@ -25,15 +25,15 @@ Administrator kreira nove izbore i definiše period njihovog održavanja.
     \item Administrator bira opciju \textbf{Kreiraj izbore}.
     \item Sistem prikazuje formular za unos podataka o izborima.
     \item Administrator unosi naziv izbora, datum i vreme početka i datum i vreme kraja glasanja.
-    \item Administrator potvrđuje unos.
     \item Sistem proverava ispravnost unetih podataka.
+    \item Administrator potvrđuje kreiranje izbora.
     \item Sistem čuva nove izbore i prikazuje poruku o uspešnom kreiranju.
 \end{enumerate}
 
 \subsubsection*{Alternativni tokovi}
 \begin{enumerate}[label=\textbf{A\arabic*.}]
-    \item \textbf{Neispravni ili nepotpuni podaci.} Ako administrator nije popunio sva polja ili je datum kraja glasanja pre datuma početka, sistem prikazuje poruku o grešci i omogućava ispravku podataka. Tok se nastavlja od koraka 3 osnovnog toka.
-    \item \textbf{Odustajanje od kreiranja.} Administrator može da odustane od kreiranja izbora pre potvrde unosa. U tom slučaju sistem ne čuva podatke i slučaj upotrebe se završava.
+    \item \textbf{Neispravni ili nepotpuni podaci.} Ako administrator nije popunio sva polja ili je datum kraja glasanja pre datuma početka, sistem u koraku 4 prikazuje poruku o grešci i omogućava ispravku podataka. Tok se nastavlja od koraka 3 osnovnog toka.
+    \item \textbf{Odustajanje od kreiranja.} Ako administrator u koraku 5 ne potvrdi kreiranje, kreiranje se otkazuje. Sistem ne čuva podatke i slučaj upotrebe se završava.
 \end{enumerate}
 
 \begin{figure}[H]
@@ -41,6 +41,13 @@ Administrator kreira nove izbore i definiše period njihovog održavanja.
     \includegraphics[width=0.8\textwidth]{kreiranje_izbora.png}
     \caption{Dijagram aktivnosti: Kreiranje izbora}
     \label{fig:kreiranje_izbora}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{sekvenca_kreiranje_izbora.png}
+    \caption{Dijagram sekvence: Kreiranje izbora}
+    \label{fig:sekvenca_kreiranje_izbora}
 \end{figure}
 
 \newpage

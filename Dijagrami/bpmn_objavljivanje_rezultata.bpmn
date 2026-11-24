@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+  id="Definitions_Process_Rezultati" targetNamespace="http://bpmn.io/schema/bpmn">
+<bpmn:collaboration id="Collaboration_1">
+<bpmn:participant id="Participant_1" name="Obrada i objavljivanje rezultata" processRef="Process_Rezultati" />
+</bpmn:collaboration>
+<bpmn:process id="Process_Rezultati" isExecutable="false">
+<bpmn:laneSet id="LaneSet_1">
+<bpmn:lane id="Lane_Komisija" name="Izborna komisija">
+<bpmn:flowNodeRef>Start_1</bpmn:flowNodeRef>
+<bpmn:flowNodeRef>Task_Izbor</bpmn:flowNodeRef>
+<bpmn:flowNodeRef>Task_PotvrdaRez</bpmn:flowNodeRef>
+<bpmn:flowNodeRef>Task_PotvrdaObav</bpmn:flowNodeRef>
+</bpmn:lane>
+<bpmn:lane id="Lane_Sistem" name="Sistem">
+<bpmn:flowNodeRef>Task_Izlaznost</bpmn:flowNodeRef>
+<bpmn:flowNodeRef>Gw_Izlaznost</bpmn:flowNodeRef>
+<bpmn:flowNodeRef>Task_PrikazRez</bpmn:flowNodeRef>
+<bpmn:flowNodeRef>Task_PrikazObav</bpmn:flowNodeRef>
+<bpmn:flowNodeRef>Task_ObjavaRez</bpmn:flowNodeRef>
+<bpmn:flowNodeRef>Task_ObjavaObav</bpmn:flowNodeRef>
+</bpmn:lane>
+<bpmn:lane id="Lane_Student" name="Student">
+<bpmn:flowNodeRef>Task_StudRez</bpmn:flowNodeRef>
+<bpmn:flowNodeRef>Task_StudObav</bpmn:flowNodeRef>
+<bpmn:flowNodeRef>End_Rez</bpmn:flowNodeRef>
+<bpmn:flowNodeRef>End_Ponavljanje</bpmn:flowNodeRef>
+</bpmn:lane>
+</bpmn:laneSet>
+<bpmn:startEvent id="Start_1" name="Period glasanja završen"><bpmn:outgoing>Flow_1</bpmn:outgoing></bpmn:startEvent>
+<bpmn:task id="Task_Izbor" name="Izbor opcije Pregled rezultata"><bpmn:incoming>Flow_1</bpmn:incoming><bpmn:outgoing>Flow_2</bpmn:outgoing></bpmn:task>
+<bpmn:task id="Task_Izlaznost" name="Prikaz izlaznosti"><bpmn:incoming>Flow_2</bpmn:incoming><bpmn:outgoing>Flow_3</bpmn:outgoing></bpmn:task>
+<bpmn:exclusiveGateway id="Gw_Izlaznost" name="Izlaznost ≥ 50%?"><bpmn:incoming>Flow_3</bpmn:incoming><bpmn:outgoing>Flow_4</bpmn:outgoing><bpmn:outgoing>Flow_5</bpmn:outgoing></bpmn:exclusiveGateway>
+<bpmn:task id="Task_PrikazRez" name="Prikaz rezultata po izbornim listama"><bpmn:incoming>Flow_4</bpmn:incoming><bpmn:outgoing>Flow_6</bpmn:outgoing></bpmn:task>
+<bpmn:task id="Task_PrikazObav" name="Prikaz obaveštenja da izbori nisu važeći"><bpmn:incoming>Flow_5</bpmn:incoming><bpmn:outgoing>Flow_7</bpmn:outgoing></bpmn:task>
+<bpmn:task id="Task_PotvrdaRez" name="Pregled rezultata i potvrda objavljivanja"><bpmn:incoming>Flow_6</bpmn:incoming><bpmn:outgoing>Flow_8</bpmn:outgoing></bpmn:task>
+<bpmn:task id="Task_PotvrdaObav" name="Potvrda objavljivanja obaveštenja"><bpmn:incoming>Flow_7</bpmn:incoming><bpmn:outgoing>Flow_9</bpmn:outgoing></bpmn:task>
+<bpmn:task id="Task_ObjavaRez" name="Objavljivanje rezultata"><bpmn:incoming>Flow_8</bpmn:incoming><bpmn:outgoing>Flow_10</bpmn:outgoing></bpmn:task>
+<bpmn:task id="Task_ObjavaObav" name="Objavljivanje obaveštenja o ponavljanju izbora"><bpmn:incoming>Flow_9</bpmn:incoming><bpmn:outgoing>Flow_11</bpmn:outgoing></bpmn:task>
+<bpmn:task id="Task_StudRez" name="Pregled rezultata"><bpmn:incoming>Flow_10</bpmn:incoming><bpmn:outgoing>Flow_12</bpmn:outgoing></bpmn:task>
+<bpmn:task id="Task_StudObav" name="Pregled obaveštenja o ponavljanju"><bpmn:incoming>Flow_11</bpmn:incoming><bpmn:outgoing>Flow_13</bpmn:outgoing></bpmn:task>
+<bpmn:endEvent id="End_Rez" name="Rezultati objavljeni"><bpmn:incoming>Flow_12</bpmn:incoming></bpmn:endEvent>
+<bpmn:endEvent id="End_Ponavljanje" name="Izbori se ponavljaju"><bpmn:incoming>Flow_13</bpmn:incoming></bpmn:endEvent>
+<bpmn:sequenceFlow id="Flow_1" sourceRef="Start_1" targetRef="Task_Izbor" />
+<bpmn:sequenceFlow id="Flow_2" sourceRef="Task_Izbor" targetRef="Task_Izlaznost" />
+<bpmn:sequenceFlow id="Flow_3" sourceRef="Task_Izlaznost" targetRef="Gw_Izlaznost" />
+<bpmn:sequenceFlow id="Flow_4" name="da" sourceRef="Gw_Izlaznost" targetRef="Task_PrikazRez" />
+<bpmn:sequenceFlow id="Flow_5" name="ne" sourceRef="Gw_Izlaznost" targetRef="Task_PrikazObav" />
+<bpmn:sequenceFlow id="Flow_6" sourceRef="Task_PrikazRez" targetRef="Task_PotvrdaRez" />
+<bpmn:sequenceFlow id="Flow_7" sourceRef="Task_PrikazObav" targetRef="Task_PotvrdaObav" />
+<bpmn:sequenceFlow id="Flow_8" sourceRef="Task_PotvrdaRez" targetRef="Task_ObjavaRez" />
+<bpmn:sequenceFlow id="Flow_9" sourceRef="Task_PotvrdaObav" targetRef="Task_ObjavaObav" />
+<bpmn:sequenceFlow id="Flow_10" sourceRef="Task_ObjavaRez" targetRef="Task_StudRez" />
+<bpmn:sequenceFlow id="Flow_11" sourceRef="Task_ObjavaObav" targetRef="Task_StudObav" />
+<bpmn:sequenceFlow id="Flow_12" sourceRef="Task_StudRez" targetRef="End_Rez" />
+<bpmn:sequenceFlow id="Flow_13" sourceRef="Task_StudObav" targetRef="End_Ponavljanje" />
+</bpmn:process>
+<bpmndi:BPMNDiagram id="BPMNDiagram_1">
+<bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1">
+<bpmndi:BPMNShape id="Participant_1_di" bpmnElement="Participant_1" isHorizontal="true"><dc:Bounds x="0" y="0" width="1745" height="690" /></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Lane_Komisija_di" bpmnElement="Lane_Komisija" isHorizontal="true"><dc:Bounds x="30" y="0" width="1715" height="230" /></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Lane_Sistem_di" bpmnElement="Lane_Sistem" isHorizontal="true"><dc:Bounds x="30" y="230" width="1715" height="230" /></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Lane_Student_di" bpmnElement="Lane_Student" isHorizontal="true"><dc:Bounds x="30" y="460" width="1715" height="230" /></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Start_1_di" bpmnElement="Start_1"><dc:Bounds x="144.5" y="44.5" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="107.5" y="84.5" width="110" height="27" /></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Task_Izbor_di" bpmnElement="Task_Izbor"><dc:Bounds x="285.0" y="26.5" width="125" height="72" /></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Task_Izlaznost_di" bpmnElement="Task_Izlaznost"><dc:Bounds x="470.0" y="256.5" width="125" height="72" /></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Gw_Izlaznost_di" bpmnElement="Gw_Izlaznost"><dc:Bounds x="692.5" y="267.5" width="50" height="50" /><bpmndi:BPMNLabel><dc:Bounds x="667.5" y="235.5" width="100" height="27" /></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Task_PrikazRez_di" bpmnElement="Task_PrikazRez"><dc:Bounds x="840.0" y="256.5" width="125" height="72" /></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Task_PrikazObav_di" bpmnElement="Task_PrikazObav"><dc:Bounds x="840.0" y="361.5" width="125" height="72" /></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Task_PotvrdaRez_di" bpmnElement="Task_PotvrdaRez"><dc:Bounds x="1025.0" y="26.5" width="125" height="72" /></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Task_PotvrdaObav_di" bpmnElement="Task_PotvrdaObav"><dc:Bounds x="1025.0" y="131.5" width="125" height="72" /></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Task_ObjavaRez_di" bpmnElement="Task_ObjavaRez"><dc:Bounds x="1210.0" y="256.5" width="125" height="72" /></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Task_ObjavaObav_di" bpmnElement="Task_ObjavaObav"><dc:Bounds x="1210.0" y="361.5" width="125" height="72" /></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Task_StudRez_di" bpmnElement="Task_StudRez"><dc:Bounds x="1395.0" y="486.5" width="125" height="72" /></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Task_StudObav_di" bpmnElement="Task_StudObav"><dc:Bounds x="1395.0" y="591.5" width="125" height="72" /></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="End_Rez_di" bpmnElement="End_Rez"><dc:Bounds x="1624.5" y="504.5" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="1587.5" y="544.5" width="110" height="27" /></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="End_Ponavljanje_di" bpmnElement="End_Ponavljanje"><dc:Bounds x="1624.5" y="609.5" width="36" height="36" /><bpmndi:BPMNLabel><dc:Bounds x="1587.5" y="649.5" width="110" height="27" /></bpmndi:BPMNLabel></bpmndi:BPMNShape>
+<bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1"><di:waypoint x="180.5" y="62.5" /><di:waypoint x="285.0" y="62.5" /></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2"><di:waypoint x="410.0" y="62.5" /><di:waypoint x="458.0" y="62.5" /><di:waypoint x="458.0" y="292.5" /><di:waypoint x="470.0" y="292.5" /></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3"><di:waypoint x="595.0" y="292.5" /><di:waypoint x="692.5" y="292.5" /></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4"><di:waypoint x="742.5" y="292.5" /><di:waypoint x="840.0" y="292.5" /><bpmndi:BPMNLabel><dc:Bounds x="748.5" y="272.5" width="30" height="14" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5"><di:waypoint x="717.5" y="317.5" /><di:waypoint x="717.5" y="397.5" /><di:waypoint x="840.0" y="397.5" /><bpmndi:BPMNLabel><dc:Bounds x="723.5" y="323.5" width="30" height="14" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6"><di:waypoint x="965.0" y="292.5" /><di:waypoint x="977.0" y="292.5" /><di:waypoint x="977.0" y="62.5" /><di:waypoint x="1025.0" y="62.5" /></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7"><di:waypoint x="965.0" y="397.5" /><di:waypoint x="1013.0" y="397.5" /><di:waypoint x="1013.0" y="167.5" /><di:waypoint x="1025.0" y="167.5" /></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Flow_8_di" bpmnElement="Flow_8"><di:waypoint x="1150.0" y="62.5" /><di:waypoint x="1198.0" y="62.5" /><di:waypoint x="1198.0" y="292.5" /><di:waypoint x="1210.0" y="292.5" /></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Flow_9_di" bpmnElement="Flow_9"><di:waypoint x="1150.0" y="167.5" /><di:waypoint x="1162.0" y="167.5" /><di:waypoint x="1162.0" y="397.5" /><di:waypoint x="1210.0" y="397.5" /></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10"><di:waypoint x="1335.0" y="292.5" /><di:waypoint x="1383.0" y="292.5" /><di:waypoint x="1383.0" y="522.5" /><di:waypoint x="1395.0" y="522.5" /></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11"><di:waypoint x="1335.0" y="397.5" /><di:waypoint x="1347.0" y="397.5" /><di:waypoint x="1347.0" y="627.5" /><di:waypoint x="1395.0" y="627.5" /></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Flow_12_di" bpmnElement="Flow_12"><di:waypoint x="1520.0" y="522.5" /><di:waypoint x="1624.5" y="522.5" /></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="Flow_13_di" bpmnElement="Flow_13"><di:waypoint x="1520.0" y="627.5" /><di:waypoint x="1624.5" y="627.5" /></bpmndi:BPMNEdge>
+</bpmndi:BPMNPlane>
+</bpmndi:BPMNDiagram>
+</bpmn:definitions>

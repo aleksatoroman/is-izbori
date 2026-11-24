@@ -1,0 +1,41 @@
+@startuml aktivnosti_upravljanje_birackim_spiskom
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam shadowing false
+skinparam activity {
+  BackgroundColor #DAE8FC
+  BorderColor #6C8EBF
+  DiamondBackgroundColor #DAE8FC
+  DiamondBorderColor #6C8EBF
+}
+title Upravljanje biračkim spiskom
+
+|Administrator|
+start
+:Administrator bira izbore i opciju\n**Birački spisak**;
+|Sistem|
+if (Glasanje je već počelo?) then (da)
+  :Sistem prikazuje obaveštenje da\nbirački spisak više ne može da se menja;
+  stop
+else (ne)
+endif
+:Sistem prikazuje trenutni birački spisak;
+|Administrator|
+repeat
+  :Administrator učitava datoteku sa spiskom\nstudenata ili ručno dodaje/uklanja studenta;
+  |Sistem|
+  :Sistem proverava format podataka,\nduplikate i uslove za pravo glasa;
+backward:Sistem prikazuje poruku o grešci\ni traži ispravku podataka;
+repeat while (Podaci ispravni?) is (ne) not (da)
+:Sistem prikazuje izmenjeni spisak\ni broj studenata sa pravom glasa;
+|Administrator|
+if (Administrator potvrđuje izmene?) then (da)
+  |Sistem|
+  :Sistem čuva birački spisak;
+  :Sistem prikazuje poruku o uspešnom čuvanju;
+else (ne)
+  |Sistem|
+  :Izmene se odbacuju;
+endif
+stop
+@enduml

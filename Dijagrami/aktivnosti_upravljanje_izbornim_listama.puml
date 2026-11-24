@@ -1,0 +1,41 @@
+@startuml aktivnosti_upravljanje_izbornim_listama
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam shadowing false
+skinparam activity {
+  BackgroundColor #DAE8FC
+  BorderColor #6C8EBF
+  DiamondBackgroundColor #DAE8FC
+  DiamondBorderColor #6C8EBF
+}
+title Upravljanje izbornim listama
+
+|Administrator|
+start
+:Administrator bira izbore i opciju\n**Izborne liste**;
+|Sistem|
+if (Glasanje je već počelo?) then (da)
+  :Sistem prikazuje obaveštenje da\nizborne liste više ne mogu da se menjaju;
+  stop
+else (ne)
+endif
+:Sistem prikazuje postojeće izborne liste;
+|Administrator|
+:Administrator bira opciju **Dodaj listu**,\n**Izmeni listu** ili **Ukloni listu**;
+repeat
+  :Administrator unosi naziv liste,\nnosioca liste i kratak opis programa;
+  |Sistem|
+  :Sistem proverava unete podatke;
+backward:Sistem prikazuje poruku o grešci\ni traži ispravku podataka;
+repeat while (Podaci ispravni i naziv jedinstven?) is (ne) not (da)
+|Administrator|
+if (Administrator potvrđuje izmenu?) then (da)
+  |Sistem|
+  :Sistem čuva izmene izbornih lista;
+  :Sistem prikazuje ažuriran spisak lista;
+else (ne)
+  |Sistem|
+  :Izmene se odbacuju;
+endif
+stop
+@enduml
