@@ -1,0 +1,13 @@
+BPMN dijagrami prikazuju celokupan poslovni proces sprovođenja studentskih izbora i ulogu svakog učesnika u njemu. Proces je podeljen na dva dela: pripremu i sprovođenje glasanja i obradu i objavljivanje rezultata. Svaki učesnik ima svoju traku (\textit{lane}), a aktivnosti koje se izvršavaju automatski prikazane su u traci \textit{Sistem}.
+
+\subsection{Priprema i sprovođenje glasanja}
+
+Administrator kreira izbore, formira birački spisak i evidentira izborne liste. Kada počne period glasanja, sistem otvara glasanje. Nakon toga se paralelno odvijaju dve aktivnosti: studenti pregledaju informacije o izborima i glasaju, a izborna komisija prati izlaznost. Svaki glas sistem evidentira anonimno i ažurira izlaznost. Kada istekne period glasanja, sistem zatvara glasanje i prebrojava glasove.
+
+\slikaPolozeno{bpmn_priprema_i_glasanje.png}{BPMN dijagram: Priprema i sprovođenje glasanja}{fig:bpmn_priprema}
+
+\subsection{Obrada i objavljivanje rezultata}
+
+Nakon završetka glasanja, član izborne komisije bira pregled rezultata, a sistem prikazuje izlaznost. Ako je izlaznost veća ili jednaka 50\%, sistem prikazuje rezultate po izbornim listama. Komisija ih pregleda i potvrđuje objavljivanje, nakon čega rezultati postaju dostupni studentima. Ako je izlaznost manja od 50\%, sistem prikazuje obaveštenje da izbori nisu važeći. Komisija potvrđuje objavljivanje obaveštenja o ponavljanju izbora, a studenti dobijaju informaciju da se izbori ponavljaju.
+
+\slikaPolozeno{bpmn_objavljivanje_rezultata.png}{BPMN dijagram: Obrada i objavljivanje rezultata}{fig:bpmn_rezultati}
