@@ -1,0 +1,36 @@
+@startuml sekvenca_kreiranje_izbora
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam shadowing false
+skinparam sequence {
+  ParticipantBackgroundColor #DAE8FC
+  ParticipantBorderColor #6C8EBF
+  LifeLineBorderColor #6C8EBF
+}
+title Kreiranje izbora
+
+actor Administrator as A
+participant "Veb aplikacija" as UI
+participant "Server" as S
+database "Baza podataka" as DB
+
+A -> UI : bira opciju "Kreiraj izbore"
+UI --> A : prikaz formulara
+A -> UI : unosi naziv, početak i kraj glasanja
+A -> UI : potvrđuje unos
+UI -> S : zahtev za kreiranje izbora
+activate S
+S -> S : provera ispravnosti podataka
+alt podaci su ispravni
+  S -> DB : sačuvaj izbore
+  activate DB
+  DB --> S : izbori sačuvani
+  deactivate DB
+  S --> UI : uspešno kreiranje
+  UI --> A : poruka o uspešnom kreiranju
+else podaci nisu ispravni
+  S --> UI : greška validacije
+  UI --> A : poruka o grešci i zahtev za ispravku
+end
+deactivate S
+@enduml
