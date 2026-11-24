@@ -1,0 +1,58 @@
+@startuml dfd_nivo1
+!pragma layout smetana
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam shadowing false
+skinparam usecase {
+  BackgroundColor #DAE8FC
+  BorderColor #6C8EBF
+}
+skinparam rectangle {
+  BackgroundColor #F5F5F5
+  BorderColor #444444
+}
+skinparam database {
+  BackgroundColor #FFF2CC
+  BorderColor #D6B656
+}
+
+rectangle "Administrator" as A
+rectangle "Student" as S
+rectangle "Izborna komisija" as K
+
+usecase "1\nUpravljanje\nizborima" as P1
+usecase "2\nUpravljanje\nbiračkim spiskom" as P2
+usecase "3\nUpravljanje\nizbornim listama" as P3
+usecase "4\nGlasanje" as P4
+usecase "5\nPraćenje\nizlaznosti" as P5
+usecase "6\nObrada i objavljivanje\nrezultata" as P6
+
+database "D1 Izbori" as D1
+database "D2 Birački spisak" as D2
+database "D3 Izborne liste" as D3
+database "D4 Glasovi" as D4
+
+A --> P1 : naziv i period izbora
+P1 --> D1 : novi izbori
+A --> P2 : spisak studenata
+P2 --> D2 : birači
+A --> P3 : podaci o listama
+P3 --> D3 : izborne liste
+
+D1 --> P4 : aktivni izbori
+D3 --> P4 : izborne liste
+D2 --> P4 : pravo glasa
+S --> P4 : izabrana lista
+P4 --> D4 : anoniman glas
+P4 --> D2 : status glasanja
+P4 --> S : potvrda glasanja
+
+D2 --> P5 : broj birača i\nbroj glasalih
+P5 --> K : izlaznost
+
+D4 --> P6 : glasovi
+D2 --> P6 : izlaznost
+K --> P6 : potvrda objavljivanja
+P6 --> D1 : status izbora
+P6 --> S : rezultati / obaveštenje
+@enduml

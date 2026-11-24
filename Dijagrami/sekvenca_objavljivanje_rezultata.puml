@@ -1,0 +1,51 @@
+@startuml sekvenca_objavljivanje_rezultata
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam shadowing false
+skinparam sequence {
+  ParticipantBackgroundColor #DAE8FC
+  ParticipantBorderColor #6C8EBF
+  LifeLineBorderColor #6C8EBF
+}
+title Objavljivanje rezultata
+
+actor "Član izborne komisije" as K
+participant "Veb aplikacija" as UI
+participant "Server" as S
+database "Baza podataka" as DB
+
+K -> UI : bira opciju "Pregled rezultata"
+UI -> S : zahtev za pregled rezultata
+activate S
+S -> DB : učitaj broj birača i broj glasova
+activate DB
+DB --> S : podaci o glasanju
+deactivate DB
+S -> S : računanje procenta izlaznosti
+alt izlaznost >= 50%
+  S --> UI : izlaznost i rezultati po listama
+  UI --> K : prikaz izlaznosti i rezultata
+  K -> UI : bira opciju "Objavi"
+  alt komisija potvrđuje objavljivanje
+    UI -> S : objavi rezultate
+    S -> DB : status izbora = "rezultati objavljeni"
+    S --> UI : rezultati objavljeni
+    UI --> K : poruka o uspešnom objavljivanju
+  else komisija odustaje
+    UI --> K : rezultati nisu objavljeni
+  end
+else izlaznost < 50%
+  S --> UI : izlaznost, izbori nisu važeći
+  UI --> K : obaveštenje da izbori nisu važeći
+  alt komisija potvrđuje objavljivanje obaveštenja
+    K -> UI : bira opciju "Objavi obaveštenje"
+    UI -> S : objavi obaveštenje o ponavljanju
+    S -> DB : status izbora = "ponavljanje"
+    S --> UI : obaveštenje objavljeno
+    UI --> K : poruka o uspešnom objavljivanju
+  else komisija odustaje
+    UI --> K : obaveštenje nije objavljeno
+  end
+end
+deactivate S
+@enduml

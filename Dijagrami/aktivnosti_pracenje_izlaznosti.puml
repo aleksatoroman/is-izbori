@@ -1,0 +1,29 @@
+@startuml aktivnosti_pracenje_izlaznosti
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam shadowing false
+skinparam activity {
+  BackgroundColor #DAE8FC
+  BorderColor #6C8EBF
+  DiamondBackgroundColor #DAE8FC
+  DiamondBorderColor #6C8EBF
+}
+title Praćenje izlaznosti
+
+|Izborna komisija|
+start
+:Član komisije bira izbore\ni opciju **Praćenje izlaznosti**;
+|Sistem|
+if (Glasanje je počelo?) then (ne)
+  :Sistem prikazuje poruku da\nglasanje još nije počelo;
+  stop
+else (da)
+endif
+repeat
+  :Sistem računa broj studenata sa pravom glasa,\nbroj studenata koji su glasali i procenat izlaznosti;
+  :Sistem prikazuje trenutnu izlaznost;
+  |Izborna komisija|
+  :Član komisije prati izlaznost;
+repeat while (Član komisije osvežava prikaz?) is (da) not (ne)
+stop
+@enduml

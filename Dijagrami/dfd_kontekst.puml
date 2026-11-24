@@ -1,0 +1,28 @@
+@startuml dfd_kontekst
+!pragma layout smetana
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam shadowing false
+skinparam usecase {
+  BackgroundColor #DAE8FC
+  BorderColor #6C8EBF
+}
+skinparam rectangle {
+  BackgroundColor #F5F5F5
+  BorderColor #444444
+}
+
+rectangle "Administrator" as A
+rectangle "Student" as S
+rectangle "Izborna komisija" as K
+usecase "0\nIS za organizaciju i\nsprovođenje studentskih izbora" as P
+
+A --> P : podaci o izborima,\nbirački spisak,\nizborne liste
+P --> A : potvrde i greške\nvalidacije
+
+S --> P : zahtev za glasanje,\nizabrana lista
+P --> S : informacije o izborima,\npotvrda glasanja,\nrezultati / obaveštenja
+
+K --> P : zahtev za pregled,\npotvrda objavljivanja
+P --> K : izlaznost,\nrezultati glasanja
+@enduml
